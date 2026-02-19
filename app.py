@@ -45,16 +45,17 @@ def post():
     nickname = request.form.get('nickname')
     content = request.form.get('content')
     if nickname and content:
-        # DB에 새로운 글 저장
+        # --- 여기를 수정합니다 ---
+        tz = pytz.timezone('Asia/Seoul') # 한국 시간대 설정
+        korea_time = datetime.now(tz).strftime('%H:%M') # 한국 시간으로 현재 시각 가져오기
+        
         new_post = Post(
             nickname=nickname, 
             content=content, 
-            time=datetime.now().strftime('%H:%M')
+            time=korea_time # 수정된 시간을 저장
         )
+        # -----------------------
         db.session.add(new_post)
         db.session.commit()
     return redirect('/')
-
-if __name__ == '__main__':
-    app.run(debug=True)
     
