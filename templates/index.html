@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>올빼미 게시판 🦉</title>
     <style>
         body { background-color: #1a1a2e; color: white; font-family: sans-serif; text-align: center; padding-top: 50px; }
@@ -8,6 +9,26 @@
         input, textarea { width: 90%; margin-bottom: 10px; padding: 10px; }
         button { padding: 10px 20px; background: #e94560; color: white; border: none; cursor: pointer; }
         .post { border-bottom: 1px solid #0f3460; padding: 10px; text-align: left; }
+        /* 1. PC 버전 (기본 스타일) */
+.board { 
+    width: 80%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+/* 2. 모바일 버전 (화면 너비가 768px 이하일 때 적용) */
+@media (max-width: 768px) {
+    .board { 
+        width: 95%; /* 모바일에서는 화면을 꽉 채우게 */
+        padding: 10px; 
+    }
+    h1 { 
+        font-size: 1.5rem; /* 글자 크기를 모바일에 맞게 조절 */
+    }
+    input, textarea {
+        font-size: 16px; /* 모바일에서 클릭 시 화면 확대 방지 */
+    }
+}
     </style>
 </head>
 <body>
