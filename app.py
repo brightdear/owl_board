@@ -34,11 +34,11 @@ def is_owl_time():
 @app.route('/')
 def home():
     if is_owl_time():
-        # DB에서 최신순으로 글을 가져옵니다
         all_posts = Post.query.order_by(Post.id.desc()).all()
         return render_template('index.html', posts=all_posts)
     else:
-        return "<h1>☀️ 해가 떠 있습니다!</h1><p>22:00에 다시 만나요.</p>"
+        # 기존의 "<h1>...</h1>" 대신 아래 코드로 교체!
+        return render_template('daytime.html')
 
 @app.route('/post', methods=['POST'])
 def post():
