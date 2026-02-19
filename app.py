@@ -27,7 +27,7 @@ with app.app_context():
 def is_owl_time():
     tz = pytz.timezone('Asia/Seoul')
     current_hour = datetime.now(tz).hour
-    if current_hour >= 22 or current_hour < 4:
+    if current_hour >= 12 or current_hour < 4:
         return True
     return False
 
